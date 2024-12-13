@@ -7,6 +7,8 @@ __all__ = [
     "SpotifyPKCE"
 ]
 
+from __future__ import print_function
+
 import base64
 import logging
 import os
@@ -22,6 +24,9 @@ from urllib.parse import parse_qsl, urlparse
 from spotipy.cache_handler import CacheFileHandler, CacheHandler
 from spotipy.exceptions import SpotifyOauthError, SpotifyStateError
 from spotipy.util import CLIENT_CREDS_ENV_VARS, get_host_port, normalize_scope
+
+if hasattr(__builtins__, 'raw_input'):
+    input = raw_input
 
 logger = logging.getLogger(__name__)
 
@@ -82,10 +87,7 @@ class SpotifyAuthBase:
 
     @staticmethod
     def _get_user_input(prompt):
-        try:
-            return raw_input(prompt)
-        except NameError:
-            return input(prompt)
+        return input(prompt)
 
     @staticmethod
     def is_token_expired(token_info):
