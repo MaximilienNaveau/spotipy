@@ -1,3 +1,5 @@
+from __future__ import print_function
+
 __all__ = [
     "SpotifyClientCredentials",
     "SpotifyOAuth",
@@ -6,8 +8,6 @@ __all__ = [
     "SpotifyImplicitGrant",
     "SpotifyPKCE"
 ]
-
-from __future__ import print_function
 
 import base64
 import logging
